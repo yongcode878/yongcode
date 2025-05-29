@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YONGCODE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Fira Code', monospace;
+    }
+
+    body {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-container {
+      width: 90%;
+      max-width: 400px;
+      background-color: #252526;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      border: 1px solid #1a1a1a;
+    }
+
+    .app-header {
+      background-color: #007acc;
+      padding: 15px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .app-menu {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0;
+    }
+
+    .menu-item {
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      border-left: 4px solid transparent;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .menu-item:hover {
+      background-color: #2a2d2e;
+      border-left: 4px solid #007acc;
+    }
+
+    .menu-item i {
+      margin-right: 15px;
+      width: 20px;
+      text-align: center;
+      color: #569cd6;
+    }
+
+    .menu-item.active {
+      background-color: #37373d;
+      border-left: 4px solid #007acc;
+    }
+
+    .menu-item.gas-coding {
+      background-color: #007acc;
+      color: white;
+      justify-content: center;
+      font-weight: bold;
+      margin: 10px 20px;
+      border-radius: 4px;
+    }
+
+    .menu-item.gas-coding:hover {
+      background-color: #006bb3;
+    }
+
+    .menu-item.gas-coding i {
+      color: white;
+    }
+
+    .status-bar {
+      background-color: #007acc;
+      padding: 5px 10px;
+      font-size: 12px;
+      text-align: center;
+      border-top: 1px solid #1a1a1a;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="app-header">
+      YONGCODE
+    </div>
+    <div class="app-menu">
+      <a href="coding.html" class="menu-item">
+        <i class="fas fa-file"></i>
+        <span>Select a Code File</span>
+      </a>
+      <a href="coding.html" class="menu-item">
+        <i class="fas fa-mobile-alt"></i>
+        <span>Select Code from Project</span>
+      </a>
+      <a href="coding.html" class="menu-item gas-coding">
+        <i class="fas fa-rocket"></i>
+        <span>GAS CODING</span>
+      </a>
+      <a href="bantuan.html" class="menu-item">
+        <i class="fas fa-question-circle"></i>
+        <span>Help</span>
+      </a>
+      <a href="tentang.html" class="menu-item">
+        <i class="fas fa-info-circle"></i>
+        <span>Tentang Kami</span>
+      </a>
+      <a href="klr.html" class="menu-item">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Exit</span>
+      </a>
+    </div>
+    <div class="status-bar">
+      Ready
+    </div>
+  </div>
+
+  <script>
+    // Highlight the active menu item based on current page
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPage = window.location.pathname.split('/').pop();
+      const menuItems = document.querySelectorAll('.menu-item');
+      
+      menuItems.forEach(item => {
+        const href = item.getAttribute('href');
+        if (href === currentPage) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Special functionality for GAS CODING button
+    document.querySelector('.gas-coding').addEventListener('click', function(e) {
+      // You can add any special behavior here before navigation
+      console.log('GAS CODING activated!');
+    });
+  </script>
+</body>
+</html>
